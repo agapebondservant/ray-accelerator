@@ -85,5 +85,5 @@ tanzu apps workload get rayserver-tap    #should yield rayserver-tap.default.<yo
 
 * To delete the app:
 ```
-tanzu apps workload delete mlflow-server-tap --yes
+tanzu apps workload delete rayserver-tap --yes
 ```
