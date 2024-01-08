@@ -18,6 +18,7 @@ tanzu acc create ray --git-repository https://github.com/agapebondservant/ray-ac
 
 ## Contents
 1. [Install Ray with vanilla Kubernetes](#k8s)
+1. [Integrate with TAP](#tap)
 
 ### Install Ray with vanilla Kubernetes<a name="k8s"/>
 
@@ -65,7 +66,7 @@ kubectl delete crd rayservices.ray.io
 kubectl delete ns ray
 ```
 
-## Integrate with TAP
+## Integrate with TAP<a name="tap"/>
 
 * Deploy the app:
 ```
