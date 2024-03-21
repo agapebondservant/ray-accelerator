@@ -18,5 +18,5 @@ tanzu acc create bitnami-ray --git-repository https://github.com/agapebondservan
 
 Publish Fragments:
 ```
-tanzu acc fragment create bitnami-ray-fragment --git-repository https://github.com/agapebondservant/airflow-accelerator.git --git-branch bitnami
+tanzu acc fragment create bitnami-ray-fragment --git-repository https://github.com/agapebondservant/ray-accelerator.git --git-branch bitnami
 ```
