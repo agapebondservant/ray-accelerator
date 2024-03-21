@@ -104,7 +104,7 @@ engine:
     - type: Chain
       transformations:
         - type: Include
-          patterns: [ 'resources/**' ]
+          patterns: [ 'resources/**.yaml' ]
         - type: ReplaceText
           substitutions:
             - text: REPLACE_RAY_IMAGE_TAG
