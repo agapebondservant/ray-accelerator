@@ -26,30 +26,6 @@ accelerator:
         - text: 'View guidance manual: https://github.com/bitnami/charts/tree/main/bitnami/airflow'
           value: training
       defaultValue: training
-    - name: rayImageTag
-      inputType: text
-      display: true
-      label: 'rayImage.tag'
-      defaultValue: '2.9.3-debian-12-r0'
-      dependsOn:
-        name: mlPlatformType
-        value: training
-    - name: operatorImageTag
-      inputType: text
-      display: true
-      label: 'operator.image.tag'
-      defaultValue: '1.0.0-debian-12-r15'
-      dependsOn:
-        name: mlPlatformType
-        value: training
-    - name: apiserverImageTag
-      inputType: text
-      display: true
-      label: 'apiserver.image.tag'
-      defaultValue: '1.0.0-debian-12-r12'
-      dependsOn:
-        name: mlPlatformType
-        value: training
     - name: clusterHeadResourcesLimitsMemory
       inputType: text
       display: true
@@ -104,15 +80,9 @@ engine:
     - type: Chain
       transformations:
         - type: Include
-          patterns: [ 'resources/**.yaml' ]
+          patterns: [ 'resources/**/*.yaml' ]
         - type: ReplaceText
           substitutions:
-            - text: REPLACE_RAY_IMAGE_TAG
-              with: "#rayImageTag"
-            - text: REPLACE_OPERATOR_IMAGE_TAG
-              with: "#operatorImageTag"
-            - text: REPLACE_APISERVER_IMAGE_TAG
-              with: "#apiserverImageTag"
             - text: REPLACE_CLUSTER_HEAD_RESOURCES_LIMITS_MEMORY
               with: "#clusterHeadResourcesLimitsMemory"
             - text: REPLACE_CLUSTER_HEAD_RESOURCES_REQUESTS_MEMORY
