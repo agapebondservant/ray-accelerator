@@ -58,7 +58,7 @@ accelerator:
       dependsOn:
         name: mlPlatformType
         value: training
-    - name: operatorServiceType
+    - name: rayOperatorServiceType
       inputType: text
       display: true
       label: 'operator.service.type'
@@ -66,11 +66,51 @@ accelerator:
       dependsOn:
         name: mlPlatformType
         value: training
-    - name: apiserverServiceType
+    - name: rayApiserverServiceType
       inputType: text
       display: true
       label: 'apiserver.service.type'
       defaultValue: 'LoadBalancer'
+      dependsOn:
+        name: mlPlatformType
+        value: training
+    - name: rayProxyIngressEnabled
+      inputType: text
+      display: true
+      label: 'proxy.ingress.enabled'
+      defaultValue: 'true'
+      dependsOn:
+        name: mlPlatformType
+        value: training
+    - name: rayProxyIngressHostname
+      inputType: text
+      display: true
+      label: 'proxy.ingress.hostname'
+      defaultValue: 'yourhostname.com'
+      dependsOn:
+        name: mlPlatformType
+        value: training
+    - name: rayProxyIngressAnnotationsWebsocketRoutes
+      inputType: text
+      display: true
+      label: 'proxy.ingress.annotations.websocket.routes'
+      defaultValue: '/'
+      dependsOn:
+        name: mlPlatformType
+        value: training
+    - name: rayProxyIngressTls
+      inputType: text
+      display: true
+      label: 'proxy.ingress.tls'
+      defaultValue: 'true'
+      dependsOn:
+        name: mlPlatformType
+        value: training
+    - name: rayProxyIngressSelfSigned
+      inputType: text
+      display: true
+      label: 'proxy.ingress.selfSigned'
+      defaultValue: 'true'
       dependsOn:
         name: mlPlatformType
         value: training
@@ -91,8 +131,18 @@ engine:
               with: "#clusterWorkerCommonResourcesLimitsMemory"
             - text: REPLACE_CLUSTER_WORKER_COMMON_RESOURCES_REQUESTS_MEMORY
               with: "#clusterWorkerCommonResourcesRequestsMemory"
-            - text: REPLACE_OPERATOR_SERVICE_TYPE
-              with: "#operatorServiceType"
-            - text: REPLACE_API_SERVER_SERVICE_TYPE
-              with: "#apiserverServiceType"
+            - text: REPLACE_RAY_OPERATOR_SERVICE_TYPE
+              with: "#rayOperatorServiceType"
+            - text: REPLACE_RAY_API_SERVER_SERVICE_TYPE
+              with: "#rayApiserverServiceType"
+            - text: REPLACE_RAY_PROXY_INGRESS_ENABLED
+              with: "#rayProxyIngressEnabled"
+            - text: REPLACE_RAY_PROXY_INGRESS_HOSTNAME
+              with: "#rayProxyIngressHostname"
+            - text: REPLACE_RAY_PROXY_INGRESS_ANNOTATIONS_WEBSOCKETROUTES
+              with: "#rayProxyIngressAnnotationsWebsocketRoutes"
+            - text: REPLACE_RAY_PROXY_INGRESS_TLS
+              with: "#rayProxyIngressTls"
+            - text: REPLACE_RAY_PROXY_INGRESS_SELF_SIGNED
+              with: "#rayProxyIngressSelfSigned"
 

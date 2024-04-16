@@ -448,7 +448,7 @@ operator:
   service:
     ## @param operator.service.type Kuberay Operator service type
     ##
-    type: REPLACE_OPERATOR_SERVICE_TYPE
+    type: REPLACE_RAY_OPERATOR_SERVICE_TYPE
     ## @param operator.service.ports.metrics Kuberay Operator service HTTP port
     ##
     ports:
@@ -1097,7 +1097,7 @@ apiserver:
   service:
     ## @param apiserver.service.type Kuberay API Server service type
     ##
-    type: REPLACE_API_SERVER_SERVICE_TYPE
+    type: REPLACE_RAY_API_SERVER_SERVICE_TYPE
     ## @param apiserver.service.ports.http Kuberay API Server service HTTP port
     ## @param apiserver.service.ports.grpc Kuberay API Server service HTTP port
     ##
