@@ -45,7 +45,7 @@ helm install raycluster kuberay/ray-cluster -nray --version 1.0.0-rc.0 \
 watch kubectl get pods -nray --selector=ray.io/cluster=raycluster-kuberay # Wait till the pods are in "Running" state
 ```
 
-Set up Ingress / annotate LoadBalancer (for AWS deployments):
+Set up Ingress:
 ```
 ytt -f resources/httpproxy.yaml -f resources/values.yaml | kubectl apply -nray -f -
 kubectl annotate service raycluster-kuberay-head-svc -nray service.beta.kubernetes.io/aws-load-balancer-connection-idle-timeout=3600 # for AWS
@@ -53,7 +53,7 @@ kubectl annotate service raycluster-kuberay-head-svc -nray service.beta.kubernet
 
 Get the Ray Client Server endpoint:
 ```
-export RAY_ADDRESS=ray://$(kubectl get svc raycluster-kuberay-head-svc -o jsonpath='{.status.loadBalancer.ingress[0].hostname}' -nray):10001
+export RAY_ADDRESS=ray://$(kubectl get svc raycluster-kuberay-head-svc -o jsonpath="{.status.loadBalancer.ingress[0]['hostname', 'ip']}" -nray):10001
 ```
 
 To uninstall:
