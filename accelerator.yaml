@@ -120,7 +120,7 @@ engine:
     - type: Chain
       transformations:
         - type: Include
-          patterns: [ 'resources/**/*.yaml' ]
+          patterns: [ '**/**.yaml' ]
         - type: ReplaceText
           substitutions:
             - text: REPLACE_CLUSTER_HEAD_RESOURCES_LIMITS_MEMORY
