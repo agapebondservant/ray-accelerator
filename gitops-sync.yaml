@@ -9,7 +9,7 @@ spec:
   sourceRef:
     kind: GitRepository
     name: mlops-flux-system
-  path: ./clusters/mlops/ray-accelerator/bitnami-ray/1.0.0
+  path: ./bitnami-ray/1.0.0
   prune: true
   wait: true
   timeout: 10m0s
