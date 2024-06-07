@@ -121,6 +121,8 @@ engine:
       transformations:
         - type: Include
           patterns: [ '**/**.yaml' ]
+        - type: Exclude
+          patterns: [ 'catalog-info.yaml' ]
         - type: ReplaceText
           substitutions:
             - text: REPLACE_CLUSTER_HEAD_RESOURCES_LIMITS_MEMORY
